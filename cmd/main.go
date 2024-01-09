@@ -9,5 +9,4 @@ import (
 func main() {
 	// Start the HTTP server on port 8080
 	http.ListenAndServe(":8080", rest.Run())
-
 }
