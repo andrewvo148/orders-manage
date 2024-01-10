@@ -11,12 +11,22 @@ type CreateUserHandler struct {
 }
 
 type CreateUserRequest struct {
+	ID       string
 	Fullname string
 	Phone    string
 	Email    string
 	Password string
 }
 
-func (h CreateUserHandler) CreateUsers(ctx context.Context, request CreateUserRequest) {
-	h.userRepo.Save(ctc, )
+func NewCreateUserHandler(userRepo domain.UserRepository) *CreateUserHandler {
+	return &CreateUserHandler{userRepo: userRepo}
+}
+
+func (h CreateUserHandler) CreateUsers(ctx context.Context, request CreateUserRequest) error {
+	return h.userRepo.Save(ctx, domain.User{
+		ID:       request.ID,
+		FullName: request.Fullname,
+		Email:    request.Email,
+		Phone:    request.Phone,
+	})
 }

@@ -1,14 +1,13 @@
 package postgres
 
 import (
-	"context"
-
-	"github.com/andrewvo148/orders-manage/internal/domain"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 type OrderRepository struct {
+	poolConn *pgxpool.Pool
 }
 
-func All(ctx context.Context, offset int, limit int) ([]domain.Order, error) {
-
+func NewOrderRepository(poolConn *pgxpool.Pool) *OrderRepository {
+	return &OrderRepository{poolConn: poolConn}
 }

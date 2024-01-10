@@ -1,19 +1,19 @@
--- +goose Up
-CREATE TABLE IF NOT EXISTS item (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS orders (
-    id SERIAL PRIMARY KEY,
-    customer TEXT NOT NULL,
-    total_cost DECIMAL(10, 2) NOT NULL,
-    order_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    item_id INT REFERENCES item(id) ON DELETE CASCADE
-);
-
-
--- +goose Down
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS item;
+-- -- +goose Up
+-- CREATE TABLE IF NOT EXISTS item (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255) NOT NULL,
+--     price DECIMAL(10, 2) NOT NULL
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS orders (
+--     id SERIAL PRIMARY KEY,
+--     customer TEXT NOT NULL,
+--     total_cost DECIMAL(10, 2) NOT NULL,
+--     order_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+--     item_id INT REFERENCES item(id) ON DELETE CASCADE
+-- );
+--
+--
+-- -- +goose Down
+-- DROP TABLE IF EXISTS orders;
+-- DROP TABLE IF EXISTS item;

@@ -2,6 +2,8 @@
 CREATE TABLE IF NOT EXISTS users (
   id         text        NOT NULL,
   full_name       text        NOT NULL,
+  phone text NOT NULL,
+  email text NOT NULL,
   created_at timestamptz NOT NULL DEFAULT NOW(),
   updated_at timestamptz NOT NULL DEFAULT NOW(),
   PRIMARY KEY (id)
